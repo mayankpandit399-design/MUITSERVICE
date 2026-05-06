@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>M.U IT Service</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(45deg, #000, #444);
+    padding: 15px;
+    text-align: center;
+}
+
+.navbar a {
+    color: #fff;
+    margin: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(to right, #007bff, #00c6ff);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+/* Section */
+.section {
+    padding: 50px;
+    text-align: center;
+}
+
+/* Cards */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 250px;
+    margin: 15px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Price */
+.price {
+    background: #f9f9f9;
+}
+
+/* Contact */
+.contact {
+    background: linear-gradient(to right, #ff512f, #dd2476);
+    color: white;
+}
+
+/* Button */
+button {
+    padding: 10px;
+    background: black;
+    color: white;
+    border: none;
+}
+
+/* Input */
+input, textarea {
+    padding: 10px;
+    width: 250px;
+    margin: 5px;
+}
+
+/* Footer */
+.footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* WhatsApp */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.whatsapp a {
+    background: green;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#price">Price</a>
+    <a href="#contact">Contact</a>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+    <h1>M.U IT Service</h1>
+<h2>CCTV Camera Installation hub</h2>
+    <p>CCTV | Laptop, Repairing | Computer Assemble </p>
+<p>These all services provided our coustomer.</p>
+<img src="‪‪pexels-maria-buloczka-10562464.jpeg">
+
+</div>
+
+<!-- Services -->
+<div id="services" class="section">
+    <h2>Our Services</h2>
+
+    <div class="container">
+
+        <div class="card">
+            <h3>CCTV Installation</h3>
+            <p>Home,Hotel,Shop & Office Security</p>
+        </div>
+
+        <div class="card">
+            <h3>Laptop Sale</h3>
+            <p>New & Old Available</p>
+        </div>
+
+        <div class="card">
+            <h3>Computer Repair</h3>
+            <p>Hardware & Software Fix</p>
+        </div>
+
+        <div class="card">
+            <h3>PC Assemble</h3>
+            <p>Custom Build</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- Price -->
+<div id="price" class="section price">
+    <h2>Price List</h2>
+    <p>📷 CCTV Installation: ₹1500 - ₹5000</p>
+    <p>💻 Laptop Repair: ₹500 - ₹3000</p>
+    <p>🖥️ PC Assemble: ₹10000+</p>
+</div>
+
+<!-- Contact -->
+<div id="contact" class="section contact">
+    <h2>Contact & Booking</h2>
+
+    <p>📞 Phone: 7060789604,7060885478</p>
+    <p>📍 Address: Mathura & Vrindavn, UP</p>
+
+    <form onsubmit="sendWhatsApp(); return false;">
+        <input type="text" id="name" placeholder="Your Name" required><br>
+        <input type="text" id="phone" placeholder="Mobile Number" required><br>
+        <textarea id="service" placeholder="Service Required"></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>© 2026 M.U IT Service | All Rights Reserved</p>
+</div>
+
+<!-- WhatsApp -->
+<div class="whatsapp">
+    <a href="https://wa.me/917060789604" target="_blank">💬</a>
+</div>
+
+<script>
+function sendWhatsApp() {
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phone").value;
+    var service = document.getElementById("service").value;
+
+    var msg = "Name: " + name + "%0APhone: " + phone + "%0AService: " + service;
+
+    window.open("https://wa.me/917060789604?text=" + msg, "_blank");
+}
+</script>
+<div style="border:1px solid #ccc; padding:15px; margin-top:20px;">
+    <h2>Customer Review</h2>
+
+    <label>Name:</label><br>
+    <input type="text" id="name" placeholder="Enter your name"><br><br>
+
+    <label>Rating:</label><br>
+    <div id="stars">
+        <span onclick="rate(1)">☆</span>
+        <span onclick="rate(2)">☆</span>
+        <span onclick="rate(3)">☆</span>
+        <span onclick="rate(4)">☆</span>
+        <span onclick="rate(5)">☆</span>
+    </div>
+
+    <input type="hidden" id="rating" value="0"><br>
+
+    <label>Review:</label><br>
+    <textarea id="review" placeholder="Write your review"></textarea><br><br>
+
+    <button onclick="submitReview()">Submit</button>
+
+    <h3>All Reviews:</h3>
+    <div id="reviews"></div>
+</div>
+
+<style>
+#stars span {
+    font-size: 30px;
+    cursor: pointer;
+    color: gray;
+}
+</style>
+
+<script>
+function rate(n) {
+    document.getElementById("rating").value = n;
+
+    let stars = document.getElementById("stars").children;
+
+    for (let i = 0; i < 5; i++) {
+        stars[i].innerHTML = i < n ? "★" : "☆";
+        stars[i].style.color = i < n ? "gold" : "gray";
+    }
+}
+
+function submitReview() {
+    let name = document.getElementById("name").value;
+    let rating = document.getElementById("rating").value;
+    let review = document.getElementById("review").value;
+
+    if(name === "" || review === "" || rating == 0) {
+        alert("Please fill all fields and select rating");
+        return;
+    }
+
+    let reviewBox = document.getElementById("reviews");
+
+    let newReview = document.createElement("div");
+    newReview.style.borderBottom = "1px solid #ddd";
+    newReview.style.marginBottom = "10px";
+
+    let stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+
+    newReview.innerHTML = "<strong>" + name + "</strong><br>" + stars + "<br>" + review;
+
+    reviewBox.appendChild(newReview);
+
+    // reset
+    document.getElementById("name").value = "";
+    document.getElementById("review").value = "";
+    document.getElementById("rating").value = "0";
+    rate(0);
+}
+</script>
+</body>
+</html>
